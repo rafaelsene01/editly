@@ -20,7 +20,7 @@ export async function testFf(exePath, name) {
   try {
     const { stdout } = await execa(exePath, ['-version']);
     const firstLine = stdout.split('\n')[0];
-    const match = firstLine.match(`${name} version ([0-9.]+)`);
+    const match = firstLine.match(`${name} version ([0-9a-zA-Z-.]+)`);
     assert(match, 'Unknown version string');
     const versionStr = match[1];
     console.log(`${name} version ${versionStr}`);
