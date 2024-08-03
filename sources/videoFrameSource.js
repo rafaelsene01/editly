@@ -76,7 +76,7 @@ export default async ({ width: canvasWidth, height: canvasHeight, channels, fram
   const firstVideoStream = streams.find((s) => s.codec_type === 'video');
   // https://superuser.com/a/1116905/658247
 
-  let inputCodec;
+  let inputCodec 
   if (firstVideoStream.codec_name === 'vp8') inputCodec = 'libvpx';
   else if (firstVideoStream.codec_name === 'vp9') inputCodec = 'libvpx-vp9';
 
@@ -133,7 +133,7 @@ export default async ({ width: canvasWidth, height: canvasHeight, channels, fram
       }
 
       if (ended) {
-        console.log(path, 'Tried to read next video frame after ffmpeg video stream ended');
+        // console.log(path, 'Tried to read next video frame after ffmpeg video stream ended');
         resolve();
         return;
       }
