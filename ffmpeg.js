@@ -24,7 +24,8 @@ export async function testFf(exePath, name) {
     assert(match, 'Unknown version string');
     const versionStr = match[1];
     console.log(`${name} version ${versionStr}`);
-    assert(compareVersions(versionStr, minRequiredVersion, '>='), 'Version is outdated');
+    if(/[\d]+\.[\d]+\.[\d]+/.test(versionStr))
+      assert(compareVersions(versionStr, minRequiredVersion, '>='), 'Version is outdated');
   } catch (err) {
     console.error(`WARNING: ${name}:`, err.message);
   }
