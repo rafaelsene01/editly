@@ -23,7 +23,7 @@ export async function testFf(exePath, name) {
     const match = firstLine.match(`${name} version ([0-9a-zA-Z-.]+)`);
     assert(match, 'Unknown version string');
     const versionStr = match[1];
-    console.log(`${name} version ${versionStr}`);
+    // console.log(`${name} version ${versionStr}`);
     if(/[\d]+\.[\d]+\.[\d]+/.test(versionStr))
       assert(compareVersions(versionStr, minRequiredVersion, '>='), 'Version is outdated');
   } catch (err) {
