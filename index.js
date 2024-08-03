@@ -160,7 +160,7 @@ async function Editly(config = {}) {
 
   assert(fps, 'FPS not specified or detected');
 
-  console.log(`${width}x${height} ${fps}fps`);
+  // console.log(`${width}x${height} ${fps}fps`);
 
   const estimatedTotalFrames = fps * clips.reduce((acc, c, i) => {
     let newAcc = acc + c.duration;
@@ -300,10 +300,10 @@ async function Editly(config = {}) {
         // Done with transition?
         if (transitionFrameAt >= transitionLastFrameIndex) {
           transitionFromClipId += 1;
-          console.log(`Done with transition, switching to next transitionFromClip (${transitionFromClipId})`);
+          // console.log(`Done with transition, switching to next transitionFromClip (${transitionFromClipId})`);
 
           if (!getTransitionFromClip()) {
-            console.log('No more transitionFromClip, done');
+            // console.log('No more transitionFromClip, done');
             break;
           }
 
@@ -395,9 +395,9 @@ async function Editly(config = {}) {
     if (!keepTmp) await fsExtra.remove(tmpDir);
   }
 
-  console.log();
-  console.log('Done. Output file can be found at:');
-  console.log(outPath);
+  // console.log();
+  // console.log('Done. Output file can be found at:');
+  // console.log(outPath);
 }
 
 // Pure function to get a frame at a certain time
